@@ -1,0 +1,79 @@
+
+{% extends "layout.html"%}
+{% block contenido%}
+{% import "_macros.html" as macros %}
+    <h1>Figuras geometricas</h1>
+    <form action="/figuras" method="post">
+        <label for="cuadrado">Cuadrado: </label>
+        <input type="radio" id="cuadrado" value="cuadrado" name="area">
+
+        <label for="triangulo">Triangulo: </label>
+        <input type="radio" id="triangulo" value="triangulo" name="area">
+
+        <label for="circulo">Circulo: </label>
+        <input type="radio" id="circulo" value="circulo" name="area">
+
+        <label for="rectangulo">Rectangulo: </label>
+        <input type="radio" id="rectangulo" value="rectangulo" name="area">
+
+        <label for="pentagono">Pentagono: </label>
+        <input type="radio" id="pentagono" value="pentagono" name="area">
+
+
+        <br><br>
+
+        <button type="submit" class="btn btn-primary">Elegir</button>
+    </form>
+
+
+    {% if area == "cuadrado" %}
+    <form action="/figuras" method="post">
+        <input type="hidden" name="area" value="cuadrado">
+        
+        <p>Cuadrado: </p>
+        {{macros.campo1('lado', 'Lado del cuadrado')}}<!-- lados cuadrado -->
+        <button type="hidden" name="" class="btn btn-primary">Calcular</button>
+    </form>
+
+        {% elif area == "triangulo" %}
+    <form action="/figuras" method="post">
+        <input type="hidden" name="area" value="triangulo">
+        <p>Triangulo: </p>
+        {{macros.campo1('base', 'Base del triangulo')}}<!-- base triangulo -->
+        {{macros.campo1('altura', 'Altura del triangulo')}}<!-- altura triangulo -->
+        <button type="hidden" name="" class="btn btn-primary">Calcular</button>
+    </form>
+
+        {% elif area == "circulo" %}
+    <form action="/figuras" method="post">
+        <input type="hidden" name="area" value="circulo">
+        <p>Circulo: </p>
+        {{macros.campo1('radio', 'Radio del circulo')}}<!-- area circulo -->
+        <button type="hidden" name="" class="btn btn-primary">Calcular</button>
+    </form>
+
+        {% elif area == "rectangulo" %}
+    <form action="/figuras" method="post">
+        <input type="hidden" name="area" value="rectangulo">
+        <p>Rectangulo: </p>
+        {{macros.campo1('base', 'Base del rectangulo')}}<!-- base triangulo -->
+        {{macros.campo1('altura', 'Altura del rectangulo')}}<!-- altura triangulo -->
+        <button type="hidden" name="" class="btn btn-primary">Calcular</button>
+    </form>
+
+        {% elif area == "pentagono" %}
+    <form action="/figuras" method="post">
+        <input type="hidden" name="area" value="pentagono">
+        <p>Pentagono: </p>
+        {{macros.campo1('perimetro', 'Perimetro del pentagono')}}<!-- base triangulo -->
+        {{macros.campo1('apotema', 'Apotema del pentagono')}}<!-- altura triangulo -->
+        <button type="hidden" name="" class="btn btn-primary">Calcular</button>
+    </form>
+
+    
+    {% endif %}
+        
+        <p>{{resultado}}</p>
+
+    
+{% endblock%}

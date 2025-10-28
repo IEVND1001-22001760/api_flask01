@@ -1,0 +1,9 @@
+{% macro campo1(name, placeholder, type='text') %}
+<!-- si no le especificamos el tipo por defecto los archivos se haran text -->
+
+<div class="mb-3">
+        <label for="{{name}}" class="form-label">{{name}}</label>
+        <input type="{{type}}" class="form-control" id="{{name}}" name="{{name}}" placeholder="{{placeholder}}">
+</div>
+
+{% endmacro%}
